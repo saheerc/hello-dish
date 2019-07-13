@@ -1,0 +1,150 @@
+:root {
+  --color-primary: #ffa80c;
+  --color-dark : #333;
+}
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; 
+}
+
+/* Main Styling */
+html, body {
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.4;
+}
+
+
+/* Utility Classes */
+.container {
+  max-width: 1100px;
+  margin: auto;
+  overflow: hidden;
+}
+
+.text-primary{
+  color: var(--color-primary);
+}
+
+.l-heading {
+  font-size: 4rem;
+  line-height: 1.2;
+  margin-bottom: 0.75rem;
+}
+
+.lead {
+  font-size: 1.4rem;
+  margin-bottom: 0.75rem;
+  letter-spacing: 1.3px;
+}
+
+
+
+a{
+  text-decoration: none;
+}
+
+
+/* Navbar */
+#navbar{
+  background: var(--color-dark);
+  padding: 1rem;
+  color: #fff;
+  display: flex; 
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+
+
+
+#navbar .logo i {
+  color: #ffa80c;
+}
+
+#navbar ul {
+  list-style: none;
+  display: flex;
+  padding: 0.5rem 1rem;  
+}
+
+
+#navbar ul li a {
+  color: #fff;
+  padding: 0.75rem;
+  margin: 0 0.25rem;
+  font-size: 1.2rem;
+  transition: background-color .3s ease-in;
+
+}
+
+#navbar ul li a:hover {
+  background-color:var(--color-primary);
+  border-radius: 5px;
+}
+
+
+/* Showcase */
+#showcase:before {
+  content: '';
+  height: 100%;
+  background: url('../img/biriyani-2.jpg') no-repeat center center/cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
+}
+
+#showcase {
+  margin-top: -70px;
+  position: relative;
+  color: #fff;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: rgba(0,0,0,0.7);
+
+}
+
+#showcase .l-heading span {
+  display: inline-block;
+  transform: translateX(2000px);
+  animation: animateBiriyani 1.5s forwards ease-in-out;
+}
+
+#showcase .lead a {
+  display: inline-block;
+  font-size: 1.7rem;
+  margin: 0 0.2rem;
+  animation: animateOrder 1.5s forwards infinite 1.5s ease-in-out;
+}
+
+/* Keyframes */
+@keyframes animateBiriyani {
+  50% {
+    transform: translateX(200px) rotate(270deg);
+    
+  }
+  100%{
+    transform: none;
+  }
+}
+
+@keyframes animateOrder {
+  50% {
+    transform: scale(1.2);
+    
+  }
+  100%{
+    transform: none;
+  }
+}
