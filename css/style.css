@@ -2,6 +2,7 @@
   --color-primary: #ffa80c;
   --color-dark-grey: #49443c;
   --color-light-grey: #fafafa;
+  --color-secondary: #8d9440;
   /* --color-dark-grey=#333; */
 }
 
@@ -184,40 +185,161 @@ a {
 
 /* Admin Page */
 
-/* SECTION:ORDERS */
+/* SECTION:ORDERS,ITEMS */
 .table-container {
   overflow-x: auto;
 }
 
-#orders {
-  padding-top: 3rem;
-  background: url(../img/table-bg.png) no-repeat center center/cover;
-  height: 100vh;
+#orders,
+#items {
+  padding: 3rem 0;
+  background: url(../img/trianglify-lowres_1.png) no-repeat center center/cover;
+  min-height: 100vh;
 }
 
-#orders table {
+#orders table,
+#items table {
   border-collapse: collapse;
   width: 80%;
   margin: auto;
   background: #fff;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease-in-out;
 }
 
-#orders tr:nth-child(even) {
+#orders tr:nth-child(even),
+#items tr:nth-child(even) {
   background-color: #f3f3f3;
 }
 
-#orders tr:hover {
+#orders tr:hover,
+#items tr:hover {
   background-color: #ddd;
 }
 
-#orders th {
-  background: #8d9440;
+#orders th,
+#items th {
+  background: var(--color-secondary);
   color: #fff;
 }
 
 #orders td,
-#orders th {
+#orders th,
+#items td,
+#items th {
   text-align: center;
   border: 1px solid #ccc;
   padding: 0.5rem;
+}
+
+#items table td i {
+  margin: 0.3rem;
+  cursor: pointer;
+  color: var(--color-dark-grey);
+}
+
+#items table td i:hover {
+  color: var(--color-primary);
+}
+
+#items .btn {
+  display: block;
+  margin: auto;
+  padding: 0.75rem 1rem;
+  color: var(--color-light-grey);
+  font-size: 1.2rem;
+  background: var(--color-primary);
+  transition: all 0.3s ease-in-out;
+  border: none;
+  cursor: pointer;
+  box-shadow: 3px 3px 5px var(--color-dark-grey);
+  margin-bottom: 3rem;
+}
+
+#items .btn:hover {
+  background: #e99600;
+  box-shadow: 5px 5px 10px var(--color-dark-grey);
+}
+
+form#add-item {
+  margin: auto;
+  background: var(--color-primary);
+  max-width: 400px;
+  padding: 1rem;
+  position: relative;
+  visibility: hidden;
+  height: 0;
+  overflow: hidden;
+  opacity: 0;
+  /* transition: visibility 0s, opacity 1s ease-in; */
+  transition: all 1s ease-in, visibility 0s;
+}
+
+form#add-item .info-message {
+  text-align: center;
+  font-size: 1rem;
+  font-style: bold;
+  color: var(--color-light-grey);
+  background: red;
+  visibility: hidden;
+  height: 0;
+  opacity: 0;
+  transition: all 1s ease-in, visibility 0s;
+}
+
+form#add-item .close {
+  position: absolute;
+  top: 0.25rem;
+  cursor: pointer;
+  right: 0.25rem;
+  font-size: 1.5rem;
+  padding: 0.25rem 0.75rem;
+  transition: all 0.3s ease-in;
+}
+
+form#add-item .close:hover {
+  background: var(--color-dark-grey);
+  color: var(--color-secondary);
+}
+
+form#add-item h3 {
+  text-align: center;
+}
+form#add-item .input-group {
+  margin: 1rem;
+}
+
+form#add-item .input-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+form#add-item .input-group .input-control {
+  padding: 0.5rem;
+  width: 100%;
+}
+
+form#add-item .input-group .input-control:focus {
+  outline: none;
+  border: 2px solid var(--color-secondary);
+}
+
+form#add-item #add-item-submit {
+  border: none;
+  display: block;
+  margin: auto;
+  padding: 0.5rem 0.75rem;
+  color: var(--color-light-grey);
+  font-size: 1.2rem;
+  margin-top: 1rem;
+  background: var(--color-secondary);
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  box-shadow: 3px 3px 5px var(--color-dark-grey);
+}
+
+form#add-item #add-item-submit:hover {
+  background: #82883b;
+  box-shadow: 5px 5px 10px var(--color-dark-grey);
 }
