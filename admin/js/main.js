@@ -239,9 +239,12 @@
                 icon: "success",
               });
 
+              syncTableId(e);
+
             })
           } else {
             swal(`${dataItemName} is safe!`);
+
           }
         }).catch(function (error) {
           console.log("Error:", error);
@@ -252,8 +255,19 @@
     }
   }
 
+  // Sync Table Id after delete item
+  function syncTableId(e) {
+    itemCounter--;
+    const dataTableId = e.target.parentElement.parentElement.getAttribute('data-table-id');
+    let trs = document.querySelectorAll('tbody tr');
+    trs.forEach(function (tr) {
+      if (tr.getAttribute('data-table-id') > dataTableId) {
+        const currentTableId = tr.getAttribute('data-table-id');
+        const tds = tr.querySelectorAll('td');
+        tds[0].textContent = currentTableId - 1;
+        tr.setAttribute('data-table-id', currentTableId - 1);
+      }
+    });
 
 
-  /* To do:
-    automatically syncing table id
-   */
+  }
